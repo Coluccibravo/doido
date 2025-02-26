@@ -1,0 +1,65 @@
+@import './base.css';
+
+body {
+  font-family: "Poppins";
+}
+
+#BodyFirstPageIntroduction{
+  min-height: 90vh;
+  background-color: var(--purple);
+  color: var(--gwhite);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#ImgPageIntroduction{
+  height: 200px;
+  width: 200px;
+}
+
+#DivGlobalPageIntroduction{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+#TitlePageIntroduction{
+  margin: 0 0 40px 0;
+}
+
+
+.TextPageIntroduction{
+  margin: 0 0 0 0;
+}
+
+#buttonformatation{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+  margin-bottom: 40px;
+}
+
+
+#aPageIntroduction{
+  background-color: var(--gwhite);
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 5px;
+  padding: 10px 10px 10px 10px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+#aPageIntroduction:hover{
+  background-color: lightgrey;
+  color: black;
+}
+
+#LastPPageIntroduction{
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+}

@@ -1,0 +1,103 @@
+@import './base.css';
+
+body{
+    overflow: hidden;
+    background-color: var(--backgroundgray);
+    font-weight: 600;
+    font-family: "Poppins";
+}
+
+.app-bar{
+    background-color: var(--backgroundgray);
+}
+
+#imglogin{
+    height: 40px;
+    width: 40px;
+}
+
+#imglogin:hover{
+    cursor: pointer;
+}
+
+#BodyFirstPageLogin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    overflow: hidden;
+}
+
+.Pconectlogin{
+    font-weight: 400;
+}
+
+#FormPageLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+input:focus{
+    outline: none;
+}
+
+.Label1formlogin{
+    display: flex;
+    align-items: center;
+}
+
+.LabelsLogin{
+    border: 0;
+    padding: 5px 5px;
+    border-radius: 5px;
+}
+
+#ButtonPageLoginEntrar{
+    background-color: var(--purple);
+    color: var(--gwhite);
+    border-radius: 5px;
+    padding: 5px 100px;
+    border: hidden;
+    font-weight: 600;
+    font-family: "Poppins";
+    font-size: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+#ButtonPageLoginEntrar:hover{
+    background-color: var(--bluelight);
+}
+
+#AbuttonCadastrar:hover{
+    background-color: var(--blackgray);
+}
+
+#AbuttonCadastrar{
+    background-color: black;
+    color: var(--gwhite);
+    border-radius: 5px;
+    padding: 5px 50px;
+    text-align: center;
+    align-items: center;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.Terms{
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+}
+
+.Terms:hover{
+    color: var(--blackgray);
+    text-decoration: underline;
+}
+
+.welcome{    
+    color: var(--bluelock);
+}

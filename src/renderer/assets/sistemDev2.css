@@ -1,0 +1,112 @@
+@import './base.css';
+
+body{
+    background-color: var(--gwhite);
+    font-family: "Poppins";
+}
+
+#h1sisdev{
+    color: var(--bluelock);
+    font-weight: 800;
+    font-size: 50px;
+}
+
+
+.conteiner {
+    display: flex;
+    min-height: 80vh;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+
+}
+
+.textinputsisdev{
+    font-weight: 600;
+}
+
+#imglogin{
+    height: 40px;
+    width: 40px;
+}
+
+#imglogin:hover{
+    cursor: pointer;
+}
+
+.btnoptions{
+    border: solid var(--purple);
+    background-color: var(--purple);
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    font-family: "Poppins";
+}
+
+.btnoptions:hover{
+    border-color: var(--bluelight);
+    background-color: var(--bluelight);
+}
+
+#centraldivcolumsisdev{
+    display: flex;
+    gap: 10px;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input{
+    border: 0;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: "Poppins";
+}
+
+.divcolumsisdev{
+    display: flex;
+    flex-direction: column;
+    & input[type="text"],input[type="number"]{
+        width: 300px;
+    }
+}
+
+#ImgSistemaDesenvolvedor {
+    width: 200px;
+    height: 200px;
+}
+
+input:focus {
+    outline: none;
+}
+
+#SistemaDesenvolvedor {
+    display: flex;
+}
+
+.ButtonCancel {
+    background-color: var();
+    display: flex;
+    justify-content: right;
+    margin-top: 3%;
+}
+
+.Buttoncancel{
+    background-color: #FA0202;
+    color: white;
+    text-decoration: none;
+    padding: 5px 20px 5px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.Buttoncancel:hover{
+    background-color: darkred;
+}

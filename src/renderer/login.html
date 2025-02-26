@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./assets/login.css"> 
+  </head>
+  <body>
+    <img src="./assets/Home.png" style="display: block;" id="imglogin">
+    <div id="BodyFirstPageLogin">
+    <h1 class = "welcome">SEJA BEM VINDO!</h1>
+    <h2>Sistema de Desenvolvedor</h2>
+    <p class="Pconectlogin">Conecte-se sua conta e tenho acesso ao sistema</p>
+      <form id="FormPageLogin">
+      <div class="Label1formlogin">
+      <img src="./assets/Person.png">
+      <label for="Username">Username</label>
+      </div>
+      <input type="text" placeholder="leomendes" class="LabelsLogin"/>
+      <div class="Label1formlogin">
+      <img src="./assets/Password.png" style="height: 30px; width: 30px;">
+      <label for="Senha">Senha</label>
+      </div>
+      <input type="password" placeholder="******" class="LabelsLogin" />
+      <a href="sistemDev2.html" style="margin: 0 auto">
+      <input type="button" value="ENTRAR" id="ButtonPageLoginEntrar"/>
+      </a>
+      </form>
+      <label for="naoCadastrado" class="Pconectlogin">Não está cadastrado?</label>
+      <a href="cadastro1.html"  id="AbuttonCadastrar">CADASTRAR</a>
+    <p class="Pconectlogin">
+      Clicando no botão cadastrar, você aceita nossos <a href="" class="Terms">Termos de Serviço</a> e
+      <a href="" class="Terms">Política de Privacidade</a>
+    </p>
+
+    <script src="index.js"></script>
+  </body>
+</html>

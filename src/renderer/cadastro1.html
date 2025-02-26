@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cadastro</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:"
+    />
+    <link href="./assets/cadastro.css" type="text/css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="DivGlobalPageRegister">
+      <h1>Faça seu cadastro</h1>
+      <form class="FormPageRegister1">
+        <h2>SUAS INFORMAÇÕES</h2>
+        <label for="name">Nome completo</label>
+        <input type="text" placeholder="Leonardo Pedroso Mendes" />
+        <label for="position">Cargo</label>
+        <input type="text" placeholder="Programador BackEnd" />
+        <label for="verification">Verificação</label>
+        <input type="text" placeholder="****" />
+        <label for="cpf">CPF</label>
+        <input type="number" placeholder="44.433.980-2"/>
+      </form>
+
+      <form class="FormPageRegister2">
+        <h2>DADOS DA CONTA</h2>
+        <label for="Username"></label>
+        <input type="text" placeholder="leomendes" />
+        <label for="email">Email</label>
+        <input type="email" placeholder="leomendes@gmail.com" />
+        <label for="password">Senha</label>
+        <input type="password" placeholder="*****" />
+        <label for="ConfirmPassword">Confirmar Senha</label>
+        <input type="password" placeholder="*****" />
+      </form>
+
+      <div class="DivButtonsRegister">
+        <input type="button" value="SALVAR E CONTINUAR" />
+        <a href="login.html">
+        <input type="button" value="CANCELAR"/>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
