@@ -1,0 +1,79 @@
+@import './base.css';
+
+body{
+    background-color: var(--gwhite);
+    font-family: "Poppins";
+    min-height: 70vh;
+}
+
+p{
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+#h1t{
+    color: var(--bluelock);
+    font-size: 40px;
+    margin-bottom: 0;
+}
+
+#p1{
+    font-weight: 800;
+}
+
+#divinputs{
+    display: flex;
+    gap: 20px;
+}
+
+.as{
+    margin-top: 15px;
+    background-color: var(--purple);
+    color: var(--gwhite);
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 15px;
+}
+
+#imglogin{
+    height: 40px;
+    width: 40px;
+}
+
+#imglogin:hover{
+    cursor: pointer;
+}
+
+#ImgSistemaDesenvolvedor {
+    width: 200px;
+    height: 200px;
+}
+
+#container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    min-height: 80vh;
+}
+
+.ButtonCancel {
+    background-color: var();
+    display: flex;
+    justify-content: right;
+    margin-top: 3%;
+}
+
+.Buttoncancel{
+    background-color: #FA0202;
+    color: white;
+    text-decoration: none;
+    padding: 5px 20px 5px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.Buttoncancel:hover{
+    background-color: darkred;
+}
