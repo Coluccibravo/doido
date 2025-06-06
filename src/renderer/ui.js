@@ -1,3 +1,5 @@
+/* eslint-disable no-inner-declarations */
+/* eslint-disable prettier/prettier */
 const nomedousuario = document.getElementById('nomeDeUsuario');
 const nomeCompleto = document.getElementById('nomeCompleto');
 const idade = document.getElementById('idade');
@@ -24,6 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
     })
     .then((data) => {
       datausername = data.username;
+
       // Log para verificar o valor de datausername
       // Verifica se os dados retornados têm as chaves necessárias
       if (data.username && data.nome && data.cargo && data.email) {
@@ -32,24 +35,40 @@ window.addEventListener('DOMContentLoaded', () => {
 
         // Verifique se a data de nascimento não é null
         if (data.dataNascimento1) {
-          // Função para calcular a idade
+          // Função para formatar a data no formato dd/MM/yyyy para exibição
+          function formatarDataNascimento(dataNascimento) {
+            const partesData = dataNascimento.split('-'); // Formato yyyy-MM-dd
+            return `${partesData[2]}/${partesData[1]}/${partesData[0]}`; // Formato dd/MM/yyyy
+          }
+
+          const dataNascimentoFormatada = formatarDataNascimento(data.dataNascimento1);
+          dataNascimentoCampo.textContent = dataNascimentoFormatada;
+
+          // Função para calcular a idade com a data no formato yyyy-MM-dd
           function calcularIdade(dataNascimento) {
-            const partesData = dataNascimento.split('/');
-            const nascimento = new Date(partesData[2], partesData[1] - 1, partesData[0]);
+            const partesData = dataNascimento.split('-'); // Formato yyyy-MM-dd
+            const nascimento = new Date(partesData[0], partesData[1] - 1, partesData[2]); // yyyy, MM, dd
             const hoje = new Date();
             let idade1 = hoje.getFullYear() - nascimento.getFullYear();
             const mesAtual = hoje.getMonth();
             const mesNascimento = nascimento.getMonth();
             const diaAtual = hoje.getDate();
             const diaNascimento = nascimento.getDate();
+
             if (mesAtual < mesNascimento || (mesAtual === mesNascimento && diaAtual < diaNascimento)) {
               idade1--;
             }
+
             return idade1.toString();
           }
 
-          idade.textContent = calcularIdade(data.dataNascimento1) + " Anos";
-          dataNascimentoCampo.textContent = data.dataNascimento1;
+          // Calcular idade com a data de nascimento no formato yyyy-MM-dd
+          const idadeCalculada = calcularIdade(data.dataNascimento1);
+          if (new Date().getFullYear() === new Date(data.dataNascimento1).getFullYear()) {
+            idade.textContent = "0 Anos"; // Se for o ano atual, idade é 0
+          } else {
+            idade.textContent = idadeCalculada + " Anos";
+          }
         } else {
           idade.textContent = "Data de nascimento não disponível";
           dataNascimentoCampo.textContent = "Data não informada";
@@ -66,13 +85,11 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
 document.getElementById('btndeletaccout').addEventListener("click", () => {
   window.location.href = "deletaccount.html";
-})
+});
 
 document.getElementById('attinfo').addEventListener("click", ()=> {
   const url = "atualizar.html?nome=" + encodeURIComponent(datausername);
-            
   window.location.href = url;
-})
+});
