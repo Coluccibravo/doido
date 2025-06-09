@@ -92,13 +92,17 @@ document.getElementById("btnAtualizar").addEventListener("click", () => {
         return;
     }
 
+    const dataOriginal = document.getElementById("inputdata").value; // "1962-03-08"
+    const [ano, mes, dia] = dataOriginal.split("-");
+    const dataFormatada = `${dia}/${mes}/${ano}`;   
+
     const cliente = {
         id: clienteId,
         nome: document.getElementById("inputnome").value,
         cpf: document.getElementById("inputcpf").value.replace(/\D/g, ""),
         rg: document.getElementById("inputrg").value.replace(/\D/g, ""),
         estadoCivil: document.getElementById("inputestado").value,
-        datanascimento1: document.getElementById("inputdata").value,
+        datanascimento1: dataFormatada,
         sexo: document.getElementById("inputsexo").value,
         email: document.getElementById("inputemail").value,
         telefone: document.getElementById("inputtelefone").value,
