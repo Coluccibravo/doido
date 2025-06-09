@@ -12,14 +12,13 @@ const inputsenha2 = document.getElementById("senha2");
 let idUser;
 let senhaOriginal;
 
-
 document.getElementById("imglogin").addEventListener("click", () => {
   window.location.href = "index.html";
 })
 
 // Função para formatar o CPF no formato 111.111.111-11
 function formatarCPF(cpf) {
-  cpf = cpf.replace(/\D/g, '');  // Remove tudo que não for número
+  cpf = cpf.replace(/\D/g, '');
   if (cpf.length <= 11) {
     cpf = cpf.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
   }
@@ -28,57 +27,62 @@ function formatarCPF(cpf) {
 
 // Função para validar o CPF
 function validarCPF(cpf) {
-  cpf = cpf.replace(/\D/g, ''); // Remove caracteres não numéricos
-  if (cpf.length !== 11) return false;  // CPF deve ter exatamente 11 dígitos
-
-  // Verifica se todos os dígitos são iguais
+  cpf = cpf.replace(/\D/g, '');
+  if (cpf.length !== 11) return false;
   if (/^(\d)\1{10}$/.test(cpf)) return false;
 
   let soma = 0, resto;
-
-  // Validação do primeiro dígito verificador
   for (let i = 0; i < 9; i++) soma += parseInt(cpf.charAt(i)) * (10 - i);
   resto = (soma * 10) % 11;
   if (resto === 10 || resto === 11) resto = 0;
   if (resto !== parseInt(cpf.charAt(9))) return false;
 
-  // Validação do segundo dígito verificador
   soma = 0;
   for (let i = 0; i < 10; i++) soma += parseInt(cpf.charAt(i)) * (11 - i);
   resto = (soma * 10) % 11;
   if (resto === 10 || resto === 11) resto = 0;
   if (resto !== parseInt(cpf.charAt(10))) return false;
 
-  return true; // CPF válido
+  return true;
 }
 
-// Função para verificar se o nome, email ou username já existem
-function verificarDadosDuplicados(nome, email, username, funcionarios) {
-  return funcionarios.some(funcionario => 
-    funcionario.nome === nome || funcionario.email === email || funcionario.username === username
-  );
+// Verifica duplicidade ignorando o próprio funcionário
+function verificarDadosDuplicados(nome, email, username, funcionarios, idAtual) {
+  for (const funcionario of funcionarios) {
+    if (funcionario.id !== idAtual) {
+      if (funcionario.nome === nome) {
+        return { duplicado: true, campo: "nome" };
+      }
+      if (funcionario.email === email) {
+        return { duplicado: true, campo: "email" };
+      }
+      if (funcionario.username === username) {
+        return { duplicado: true, campo: "username" };
+      }
+    }
+  }
+  return { duplicado: false };
 }
 
-// Adiciona o evento de input no campo de CPF
+// Formatar CPF ao digitar
 cpf.addEventListener('input', () => {
-  cpf.value = formatarCPF(cpf.value);  // Formata o CPF sempre que o usuário digitar
+  cpf.value = formatarCPF(cpf.value);
 });
 
-// Carregar os dados dos funcionários
+// Carregar dados do funcionário atual
 window.addEventListener('DOMContentLoaded', () => {
   fetch('http://localhost:8080/apiFuncionario/todos')
     .then((response) => {
       if (!response.ok) throw new Error('Erro na requisição: ' + response.status);
-      return response.json();  // Resposta é JSON com todos os funcionários
+      return response.json();
     })
     .then((funcionarios) => {
-      // Buscar dados do usuário a partir do nome (ou outro identificador, como id)
-      const funcionario = funcionarios.find(f => f.username === aa1); // Ajuste para a lógica que preferir
+      const funcionario = funcionarios.find(f => f.username === aa1);
       if (funcionario) {
         nome.value = funcionario.nome;
         cpf.value = funcionario.cpf;
         cargo.value = funcionario.cargo;
-        username.value = funcionario.username;   
+        username.value = funcionario.username;
         email.value = funcionario.email;
         dataNascimento1.value = funcionario.dataNascimento1;
         idUser = funcionario.id;
@@ -90,51 +94,49 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Ao clicar no botão de salvar
+// Ação ao clicar no botão de salvar
 document.getElementById("btnsave").addEventListener("click", () => {
-  // Verifica se os campos de senha estão vazios
+  const mensagem = document.getElementById('pMessage');
+
   if (!inputsenha1.value && !inputsenha2.value) {
-    document.getElementById('pMessage').textContent = "Por favor, preencha as senhas!";
-    document.getElementById('pMessage').style.color = "red";
+    mensagem.textContent = "Por favor, preencha as senhas!";
+    mensagem.style.color = "red";
     return;
   }
 
-  // Verifica se as senhas são iguais
   if (inputsenha1.value !== inputsenha2.value) {
-    document.getElementById('pMessage').textContent = "As senhas não coincidem!";
-    document.getElementById('pMessage').style.color = "red";
+    mensagem.textContent = "As senhas não coincidem!";
+    mensagem.style.color = "red";
     return;
   }
 
-  // Verifica se o CPF é válido
   if (!validarCPF(cpf.value)) {
-    document.getElementById('pMessage').textContent = "CPF inválido!";
-    document.getElementById('pMessage').style.color = "red";
+    mensagem.textContent = "CPF inválido!";
+    mensagem.style.color = "red";
     return;
   }
 
-  // Verifica se a data de nascimento é válida
   const dataNascimento = new Date(dataNascimento1.value);
   if (dataNascimento > new Date()) {
-    document.getElementById('pMessage').textContent = "A data de nascimento não pode ser maior que o dia de hoje!";
-    document.getElementById('pMessage').style.color = "red";
+    mensagem.textContent = "A data de nascimento não pode ser maior que o dia de hoje!";
+    mensagem.style.color = "red";
     return;
   }
 
-  // Verifica se os dados (nome, email, username) estão duplicados
+  // Verifica duplicidade com exceção do próprio funcionário
   fetch('http://localhost:8080/apiFuncionario/todos')
     .then((response) => response.json())
     .then((funcionarios) => {
-      if (verificarDadosDuplicados(nome.value, email.value, username.value, funcionarios)) {
-        document.getElementById('pMessage').textContent = "Nome, Email ou Username já estão cadastrados!";
-        document.getElementById('pMessage').style.color = "red";
+      const verificacao = verificarDadosDuplicados(nome.value, email.value, username.value, funcionarios, idUser);
+      if (verificacao.duplicado) {
+        const campo = verificacao.campo;
+        mensagem.textContent = `O campo "${campo}" já está sendo usado por outro funcionário!`;
+        mensagem.style.color = "red";
         return;
       }
 
-      // Define qual senha será enviada (nova ou original)
-      let senhaParaEnviar = inputsenha1.value ? inputsenha1.value : senhaOriginal;
+      const senhaParaEnviar = inputsenha1.value ? inputsenha1.value : senhaOriginal;
 
-      // Realiza a requisição para atualizar os dados
       fetch('http://localhost:8080/apiFuncionario/atualizar', {
         method: 'PUT',
         headers: {
@@ -146,15 +148,25 @@ document.getElementById("btnsave").addEventListener("click", () => {
           cpf: cpf.value,
           cargo: cargo.value,
           username: username.value,
-          dataNascimento1: dataNascimento1.value,  // Passa a data de nascimento editada
+          dataNascimento1: dataNascimento1.value,
           email: email.value,
           senha: senhaParaEnviar
         })
       })
       .then(response => {
         if (!response.ok) throw new Error('Erro ao atualizar os dados: ' + response.status);
-        document.getElementById('pMessage').textContent = "Atualizado com sucesso";
-        document.getElementById('pMessage').style.color = "green";
+        
+        mensagem.textContent = "Atualizado com sucesso";
+        mensagem.style.color = "green";
+
+        // Limpar campos de senha
+        inputsenha1.value = "";
+        inputsenha2.value = "";
+
+        // Limpar mensagem após 5 segundos
+        setTimeout(() => {
+          mensagem.textContent = "";
+        }, 5000);
       })
       .catch(error => {
         console.error("Erro na requisição de atualização:", error);

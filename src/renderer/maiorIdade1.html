@@ -25,7 +25,7 @@
         <label for="sex">Sexo</label>
         <input type="text" placeholder="Masculino" id="inputsexo">
         <label for="date">Data de Nascimento</label>
-        <input type="text" placeholder="07/07/2007">
+        <input type="date" placeholder="07/07/2007" id="inputdata">
         <label for="RG">RG</label>
         <input type="text" placeholder="35.114.346-4" id="inputrg">
         <label for="CPF">CPF</label>
@@ -37,19 +37,19 @@
       <form id="form2">
         <h2 class="h2l">ENDEREÇO</h2>
         <label for="city">Cidade</label>
-        <input type="text" placeholder="Nova Odessa">
+        <input type="text" placeholder="Nova Odessa" id="inputcidade">
         <label for="state">Estado</label>
-        <input type="text" placeholder="São Paulo">
+        <input type="text" placeholder="São Paulo" id="inputestado2">
         <label for="CEP">CEP</label>
-        <input type="text" placeholder="13460-970">
+        <input type="text" placeholder="13460-970" id="inputcep">
         <label for="street">Rua</label>
-        <input type="text" placeholder="Rio Branco">
+        <input type="text" placeholder="Rio Branco" id="inputrua">
         <label for="quarter">Bairro</label>
-        <input type="text" placeholder="Centro">
+        <input type="text" placeholder="Centro" id="inputbairro">
         <label for="number">Número</label>
-        <input type="number" placeholder="460">
+        <input type="text" placeholder="460" id="inputnumero">
         <label for="complement">Complemento</label>
-        <input type="text" placeholder="------">
+        <input type="text" placeholder="------" id="inputcomplemento">
       </form>
 
       <form id="form3">
@@ -62,34 +62,15 @@
         <input type="email" placeholder="leomendes@gmail.com" id="inputemail">
         <h2 class="h2l">RENDA</h2>
         <label for="monthGain">Ganho Mensal Pessoal</label>
-        <select name="monthGain" id="monthGain">
-          <option value="Não trabalha">Não trabalha</option>
-          <option value="Entre 1 a 3 salários mínimos">Entre 1 a 3 salários mínimos</option>
-          <option value="Entre 1 a 3 salários mínimos">Entre 1 a 3 salários mínimos</option>
-          <option value="Entre 4 a 6 salários mínimos">Entre 4 a 6 salários mínimos</option>
-          <option value="Entre 7 a 10 salários mínimos">Entre 7 a 10 salários mínimos</option>
-          <option value="Mais de 10 salários mínimos">Mais de 10 salários mínimos</option>
-        </select>
+        <input type="text" placeholder="R$ 1.500,00" id="inputrenda">
         <label for="numberPeople">Número de pessoas na residêndia</label>
-        <select name="numberPeople" id="numberPeople">
-          <option value="1 pessoa">1 pessoa</option>
-          <option value="2 pessoa">2 pessoas</option>
-          <option value="3 pessoa">3 pessoas</option>
-          <option value="4 pessoa">4 pessoas</option>
-          <option value="5 pessoa">5 pessoa</option>
-          <option value="Mais de 5 pessoas">Mais de 5 pessoas</option>
-        </select>
+        <input type="text" placeholder="4" id="inputpessoas">
         <label for="totalGain">Renda total da residência</label>
-        <select name="totalGain" id="totalGain">
-          <option value="Entre 1 a 3 salários mínimos">Entre 1 a 3 salários mínimos</option>
-          <option value="Entre 1 a 3 salários mínimos">Entre 1 a 3 salários mínimos</option>
-          <option value="Entre 4 a 6 salários mínimos">Entre 4 a 6 salários mínimos</option>
-          <option value="Entre 7 a 10 salários mínimos">Entre 7 a 10 salários mínimos</option>
-          <option value="Mais de 10 salários mínimos">Mais de 10 salários mínimos</option>
-        </select>
+        <input type="text" placeholder="R$ 5.000,00" id="rendaTotalresidencial">
       </form>
       </div>
       <div id="buttons">
+        <button id="btnAtualizar">Atualizar Dados</button>
         <a href="maiorIdade2.html" id="continuar">CONTINUAR</a>
         <a href="sistemDev2.html" id="voltar">VOLTAR</a>
       </div>

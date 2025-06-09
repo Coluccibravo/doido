@@ -2,6 +2,10 @@ document.getElementById("pesquisa").addEventListener("click", () => {
   const nome = document.getElementById("inputnome").value;
   const cpf = document.getElementById("inputcpf").value;
 
+  document.getElementById("imglogin").addEventListener("click", () => {
+    window.location.href = "index.html";
+  });
+
   fetch("http://localhost:8080/apiCliente/buscarsisdev2/" + nome + "/" + cpf)
     .then(response => {
       if (!response.ok) {

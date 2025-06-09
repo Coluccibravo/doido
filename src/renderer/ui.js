@@ -11,6 +11,10 @@ const aa1 = params.get("nome");
 const aa2 = params.get("idade");
 let datausername = "";
 
+document.getElementById('imglogin').addEventListener('click', () => {
+  window.location.href = "index.html";
+});
+
 window.addEventListener('DOMContentLoaded', () => {
   if (!aa1 || !aa2) {
     console.error('Parâmetros nome ou idade não encontrados na URL.');
