@@ -3,10 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>Sistema de Desenvolvedor</title>
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
     <link href="./assets/maiorIdade2.css" type="text/css" rel="stylesheet" />
   </head>
   <body>
@@ -15,13 +14,9 @@
         <form>
             <h2>DADOS DA CONTA</h2>
             <label for="name">Nome Completo</label>
-            <input type="text" placeholder="Bruno Henrique">
+            <input type="text" placeholder="Bruno Henrique" id="nome">
             <label for="plan">Plano</label>
-            <select name="plan" id="plan">
-                <option value="kids">Kids</option>
-                <option value="basica">Básica</option>
-                <option value="premium">Premium</option>
-            </select>
+            <input type="text" id="plano">
             <label for="agency">Agência</label>
             <input type="number" placeholder="1234">
             <label for="type">Tipo</label>
@@ -54,9 +49,9 @@
             <label for="actives">Ativos</label>
             <input type="text" placeholder="Tesouro direto e Ações">
             <label for="totals">Totais</label>
-            <input type="number" placeholder="R$571,45">
+            <input type="text" placeholder="R$571,45" id="total">
             <label for="percentals">Porcentuais</label>
-            <input type="text" placeholder="55% dos ganhos">
+            <input type="text" placeholder="55% dos ganhos" id="percentual">
         </form>
 
         <div>
@@ -64,5 +59,6 @@
             <a href="maiorIdade1.html">VOLTAR</a>
         </div>
     </div>
-  </body>
+    <script src="maioridade2.js"></script>    
+    </body>
     

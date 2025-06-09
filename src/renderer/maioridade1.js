@@ -45,6 +45,11 @@ window.addEventListener('DOMContentLoaded', () => {
             document.getElementById("inputtelefone").value = data.telefone;
             document.getElementById("inputcelular").value = data.celular;
             clienteId = data.id;
+            const cpfEncode = encodeURIComponent(data.cpf)
+            document.getElementById("continuar").addEventListener('click', () => {
+            window.location.href = `maiorIdade2.html?cpf=${cpfEncode}`;
+})
+
             fetch(`http://localhost:8080/apiEndereco/buscarPorClienteId/${clienteId}`)
                 .then((response) => {
                     if (!response.ok) {
@@ -159,4 +164,5 @@ document.getElementById("btnAtualizar").addEventListener("click", () => {
     })
     .then(res => res.ok ? console.log("Renda atualizada") : Promise.reject("Erro renda"))
     .catch(err => console.error(err));
-});
+
+})
