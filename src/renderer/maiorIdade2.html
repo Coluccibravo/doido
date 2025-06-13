@@ -9,54 +9,47 @@
     <link href="./assets/maiorIdade2.css" type="text/css" rel="stylesheet" />
   </head>
   <body>
+    <img src="./assets/Home.png" id="fotohome">
     <div>
-        <h1>Sistema de Desenvolvedor</h1>
-        <form>
-            <h2>DADOS DA CONTA</h2>
+        <h1 id="title">Sistema de Desenvolvedor</h1>
+        <div id="container">
+        <form id="formulario1">
+            <h2 id="subtitle">DADOS DA CONTA</h2>
             <label for="name">Nome Completo</label>
-            <input type="text" placeholder="Bruno Henrique" id="nome">
+            <input type="text" placeholder="Bruno Henrique" id="nome" disabled>
             <label for="plan">Plano</label>
-            <input type="text" id="plano">
+            <input type="text" id="plano" disabled>
             <label for="agency">Agência</label>
-            <input type="number" placeholder="1234">
+            <input type="text" placeholder="1" id="agencia" disabled>
             <label for="type">Tipo</label>
-            <select name="type" id="type">
-                <option value="corrente">Corrente(TEA)</option>
-                <option value="poupanca">Poupança</option>
-                <option value="salario">Salário</option>
-                <option value="pagamentos">Pagamentos</option>
-                <option value="digital">Digital</option>
-                <option value="conjunta">Conjunta</option>
-                <option value="singular">Singular</option>
-            </select>
+            <input type="text" placeholder="Conta Corrente" id="tipo" disabled>
             <label for="adicionals">Adicionais</label>
-            <select name="adicionals" id="adicionals">
-                <option value="cartao de debito">Cartão de débito</option>
-            </select>
+            <input type="text" placeholder="Cartão de Débito" id="adicionais" disabled>
         </form>
 
-        <form>
-            <h2>EXTRATO</h2>
+        <form id="formulario1">
+            <h2 id="subtitle">EXTRATO</h2>
             <label for="saldo">Saldo Atual</label>
-            <input type="number" placeholder="R$780,19">
+            <input type="text" placeholder="R$780,19" id="saldo" disabled>
             <label for="lastMoviment">Último movimento</label>
-            <input type="number" placeholder="-19,99">
+            <input type="number" placeholder="-19,99" disabled>
             <label for="lastMonth">Último mês</label>
         </form>
 
-        <form>
-            <h2>INVESTIMENTOS</h2>
+        <form id="formulario1">
+            <h2 id="subtitle">INVESTIMENTOS</h2>
             <label for="actives">Ativos</label>
-            <input type="text" placeholder="Tesouro direto e Ações">
+            <ul id="minhaLista">
+            </ul>
             <label for="totals">Totais</label>
-            <input type="text" placeholder="R$571,45" id="total">
+            <input type="text" placeholder="R$571,45" id="total" disabled>
             <label for="percentals">Porcentuais</label>
-            <input type="text" placeholder="55% dos ganhos" id="percentual">
+            <input type="text" placeholder="55% dos ganhos" id="percentual" disabled>
         </form>
-
+        </div>
         <div>
-            <a href="maiorIdade3.html">CONTINUAR</a>
-            <a href="maiorIdade1.html">VOLTAR</a>
+            <button id="continuar">CONTINUAR</button>
+            <button id="voltar">VOLTAR</button>
         </div>
     </div>
     <script src="maioridade2.js"></script>    
