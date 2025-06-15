@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     document.getElementById('continuar').addEventListener('click', () => {
-       window.location.href = `maiorIdade3.html?cpf=${cpf}`;
+        window.location.href = `maiorIdade3.html?cpf=${cpf}`;
     });
 
     document.getElementById('voltar').addEventListener('click', () => {
@@ -32,7 +32,62 @@ window.addEventListener("DOMContentLoaded", () => {
             document.getElementById('nome').value = data.nome;
             clienteId = data.id; // Aqui a variável recebe valor
 
-            
+            Promise.all([
+                fetch(`http://localhost:8080/apiExtrato/clienteEnvio/${clienteId}`).then(res => res.json()),
+                fetch(`http://localhost:8080/apiExtrato/clienteRecebido/${clienteId}`).then(res => res.json())
+            ])
+                .then(([envios, recebidos]) => {
+                    const tbody = document.querySelector("#extrato tbody");
+                    tbody.innerHTML = ""; // Limpa antes de renderizar
+
+                    const transacoes = [
+                        ...envios.map(item => ({ ...item, tipo: "envio" })),
+                        ...recebidos.map(item => ({ ...item, tipo: "recebido" }))
+                    ];
+
+                    function parseData(dataStr) {
+                        const [data, hora] = dataStr.split(" ");
+                        const [dia, mes, ano] = data.split("/");
+                        const [horaStr, minutoStr] = hora.split(":");
+                        return new Date(ano, mes - 1, dia, horaStr, minutoStr);
+                    }
+
+                    // Ordenar por data (mais recente primeiro)
+                    transacoes.sort((a, b) => parseData(b.data) - parseData(a.data));
+
+                    // Calcular saldo atual
+                    let saldo = 0;
+                    transacoes.forEach(item => {
+                        const valor = parseFloat(item.valor);
+                        saldo += item.tipo === "recebido" ? valor : -valor;
+                    });
+
+                    // Exibir saldo no input
+                    document.getElementById("saldo").value = `R$: ${saldo.toFixed(2)}`;
+
+                    // Exibir última movimentação (opcional)
+                    if (transacoes.length > 0) {
+                        const ultima = transacoes[0];
+                        const sinal = ultima.tipo === "envio" ? "-" : "+";
+                        document.getElementById("lastMoviment").value = `R$: ${sinal}${ultima.valor}`;
+                    }
+
+                    // Exibir transações
+                    transacoes.forEach(item => {
+                        const tr = document.createElement("tr");
+                        tr.style.backgroundColor = item.tipo === "envio" ? "#ffcccc" : "#ccffcc";
+                        const sinal = item.tipo === "envio" ? "-" : "+";
+                        tr.innerHTML = `
+            <td>${item.data}</td>
+            <td>R$: ${sinal}${item.valor}</td>
+        `;
+                        tbody.appendChild(tr);
+                    });
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar transações:', error);
+                });
+
             return fetch(`http://localhost:8080/apiRenda/buscarPorClienteId/${clienteId}`);
         })
         .then((response) => {
@@ -42,8 +97,8 @@ window.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then((data) => {
-            
-            
+
+
             document.getElementById('percentual').value = data.persentualRendaInvestimentos + "%";
             document.getElementById('total').value = "R$ " + data.rendaTotalInvestimentos;
             document.getElementById('adicionais').value = data.perfildoinvestidor;

@@ -73,6 +73,14 @@ body{
     text-decoration: none;
 }
 
+#btnAtualizar{
+    background-color: #353DAB;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    text-decoration: none;
+}
+
 #voltar{
     background-color: red;
     color: white;

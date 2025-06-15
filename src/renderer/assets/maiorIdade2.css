@@ -32,6 +32,15 @@ input{
     margin-top: 40px; 
 }
 
+table {
+    border-collapse: collapse; /* une as bordas das células */
+    width: 100%;
+}
+
+td, th {
+    padding: 5px;
+}
+
 #continuar{
     background-color: #353DAA;
     color: white;

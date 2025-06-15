@@ -91,7 +91,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 });
 
-document.getElementById("btnAtualizar").addEventListener("click", () => {
+document.getElementById("btnAtualizar").addEventListener("click", async () => {
     if (!clienteId) {
         console.error("ID do cliente não encontrado.");
         return;
@@ -129,40 +129,51 @@ document.getElementById("btnAtualizar").addEventListener("click", () => {
         cliente: { id: clienteId },
         rendaMensal: parseFloat(document.getElementById("inputrenda").value.replace(/[^\d,.-]/g, "").replace(",", ".")),
         pessoasDependentes: parseInt(document.getElementById("inputpessoas").value),
-        rendaTotalresidencial: parseFloat(document.getElementById("rendaTotalresidencial").value.replace(/[^\d,.-]/g, "").replace(",", ".")),
+        rendaTotalresidencial: parseFloat(document.getElementById("rendaTotalresidencial").value.replace(/[^\d,.-]/g, "").replace(",", "."))
     };
 
-    // Atualiza cliente
-    fetch(`http://localhost:8080/apiCliente`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(cliente)
-    })
-    .then(res => res.ok ? console.log("Cliente atualizado") : Promise.reject("Erro cliente"))
-    .catch(err => console.error(err));
+    let mensagens = [];
 
-    // Atualiza endereço
-    fetch(`http://localhost:8080/apiEndereco`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(endereco)
-    })
-    .then(res => res.ok ? console.log("Endereço atualizado") : Promise.reject("Erro endereço"))
-    .catch(err => console.error(err));
+    try {
+        const resCliente = await fetch(`http://localhost:8080/apiCliente`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(cliente)
+        });
 
-    // Atualiza renda
-    fetch(`http://localhost:8080/apiRenda`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(renda)
-    })
-    .then(res => res.ok ? console.log("Renda atualizada") : Promise.reject("Erro renda"))
-    .catch(err => console.error(err));
+        if (resCliente.ok) mensagens.push("Cliente atualizado com sucesso.");
+        else mensagens.push("Erro ao atualizar cliente.");
+    } catch (err) {
+        mensagens.push("Erro na requisição de cliente.");
+    }
 
-})
+    try {
+        const resEndereco = await fetch(`http://localhost:8080/apiEndereco`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(endereco)
+        });
+
+        if (resEndereco.ok) mensagens.push("Endereço atualizado com sucesso.");
+        else mensagens.push("Erro ao atualizar endereço.");
+    } catch (err) {
+        mensagens.push("Erro na requisição de endereço.");
+    }
+
+    try {
+        const resRenda = await fetch(`http://localhost:8080/apiRenda`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(renda)
+        });
+
+        if (resRenda.ok) mensagens.push("Renda atualizada com sucesso.");
+        else mensagens.push("Erro ao atualizar renda.");
+    } catch (err) {
+        mensagens.push("Erro na requisição de renda.");
+    }
+
+
+    document.getElementById("msgSucesso").textContent = mensagens.join(" ");
+    document.getElementById("msgSucesso").style.color = "green";
+});
