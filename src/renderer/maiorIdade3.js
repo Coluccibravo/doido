@@ -1,75 +1,104 @@
 document.getElementById("fotohome").addEventListener("click", () => {
-    window.location.href = "login.html"
-})
+    window.location.href = "login.html";
+});
+
 window.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const cpf = params.get("cpf");
+
     if (!cpf) {
         console.warn("CPF não encontrado na URL.");
         return;
     }
+
+    let cartoes = [];
+    let clienteId = null;
+
     fetch(`http://localhost:8080/apiCliente/buscarporcpf/${cpf}`)
         .then((response) => {
             if (!response.ok) {
-                throw new Error('Erro na requisição: ' + response.status);
+                throw new Error('Erro na requisição do cliente: ' + response.status);
             }
             return response.json();
         })
-        .then((data) => {
-            const clienteId = data.id;
+        .then((clienteData) => {
+            clienteId = clienteData.id;
 
-            // Buscar renda
-            return fetch(`http://localhost:8080/apiRenda/buscarPorClienteId/${clienteId}`)
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error('Erro na requisição: ' + response.status);
-                    }
-                    return response.json();
-                })
-                .then((rendaData) => {
-                    document.getElementById('plans').value = rendaData.plano;
-                    document.getElementById('account').value = rendaData.tipo;
+            // Buscar cartões
+            return fetch(`http://localhost:8080/apiCartao/buscarPorClienteId/${clienteId}`);
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Erro na requisição de cartões: ' + response.status);
+            }
+            return response.json();
+        })
+        .then((cartaoData) => {
+            cartoes = cartaoData;
+            const select = document.getElementById('selectCard');
+            select.innerHTML = '<option value="">Selecione um cartão</option>';
 
+            cartaoData.forEach((element) => {
+                let option = document.createElement("option");
+                option.value = element.tipo;
+                option.text = element.tipo;
+                select.appendChild(option);
+            });
 
-                    return fetch(`http://localhost:8080/apiCartao/buscarPorClienteId/${clienteId}`);
-                })
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error('Erro na requisição do cartão: ' + response.status);
-                    }
-                    return response.json();
-                })
-                .then((cartaoData) => {
-                    let tipo1 = "";
-                    let tipo2 = "";
-                    if (cartaoData.debito == 1) {
-                        tipo1 = "Débito";
+            // Evento de seleção de cartão
+            document.getElementById('selectCard').addEventListener('change', function () {
+                const tipoSelecionado = this.value;
+                const cartaoSelecionado = cartoes.find(c => c.tipo === tipoSelecionado);
 
-                    }
-                    if (cartaoData.credito == 1) {
-                        tipo2 = "Crédito";
-                    }
-                    let validade = cartaoData.datavalidade || '';
-                    if (validade) {
+                if (cartaoSelecionado) {
+                    let validade = cartaoSelecionado.datavalidade || '';
+                    if (validade.includes('/')) {
                         const partes = validade.split('/');
                         if (partes.length === 3) {
                             validade = `${partes[2]}-${partes[1].padStart(2, '0')}-${partes[0].padStart(2, '0')}`;
                         }
                     }
-                    document.getElementById('selectCard').value = tipo1 + " " + "e" + " " + tipo2;
-                    document.getElementById('securityCode').value = cartaoData.cvv || '';
+
+;
+                    document.getElementById('securityCode').value = cartaoSelecionado.cvv || '';
                     document.getElementById('validity').value = validade;
-                    document.getElementById('cardNumber').value = cartaoData.numero || '';
-                });
+                    document.getElementById("numero").value = cartaoSelecionado.numero || '';
+                    document.getElementById("limiteCartao").value = "R$: " + (cartaoSelecionado.limite || '0');
+                    document.getElementById("validadeCartao").value = cartaoSelecionado.validade || '';
+                } else {
+                    // Limpa os campos
+                    document.getElementById('numero').value = '';
+                    document.getElementById('securityCode').value = '';
+                    document.getElementById('validity').value = '';
+                    document.getElementById("numeroCartao").value = '';
+                    document.getElementById("limiteCartao").value = '';
+                    document.getElementById("validadeCartao").value = '';
+                }
+            });
+
+            // Agora busca a renda
+            return fetch(`http://localhost:8080/apiRenda/buscarPorClienteId/${clienteId}`);
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Erro na requisição da renda: ' + response.status);
+            }
+            return response.json();
+        })
+        .then((rendaData) => {
+            document.getElementById('plans').value = rendaData.plano || '';
+            document.getElementById('account').value = rendaData.tipo || '';
         })
         .catch((error) => {
-            console.error('Erro ao buscar dados:', error);
+            console.error('Erro geral na obtenção de dados:', error);
         });
+
+    // Botões de navegação
     document.getElementById('continuar').addEventListener('click', () => {
         window.location.href = `maiorIdade4.html?cpf=${cpf}`;
     });
+
     document.getElementById('voltar').addEventListener('click', () => {
         window.location.href = `maiorIdade2.html?cpf=${cpf}`;
     });
 });
-
