@@ -88,6 +88,7 @@ window.addEventListener("DOMContentLoaded", () => {
                     console.error('Erro ao carregar transações:', error);
                 });
 
+                console.log(clienteId)
             return fetch(`http://localhost:8080/apiRenda/buscarPorClienteId/${clienteId}`);
         })
         .then((response) => {

@@ -35,6 +35,7 @@ input{
 table {
     border-collapse: collapse; /* une as bordas das células */
     width: 100%;
+    margin-bottom: 25px;
 }
 
 td, th {
@@ -61,6 +62,10 @@ td, th {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+#buttons{
+    margin-top: 70px ;
 }
 
 #title{

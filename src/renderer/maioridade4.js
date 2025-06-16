@@ -1,9 +1,13 @@
 
 
 window.addEventListener("DOMContentLoaded", () => {
-    const cpf = 57724411085;
+    const params = new URLSearchParams(window.location.search);
+    const cpf = params.get("cpf");
     let cliente = null;  // Variável para guardar os dados do cliente
 
+    document.getElementById("btnVoltar").addEventListener("click" , () =>{
+        window.location.href = `maioridade3.html?cpf=${cpf}`
+    })
     fetch(`http://localhost:8080/apiCliente/buscarporcpf/${cpf}`)
         .then(response => {
             if (!response.ok) throw new Error("Erro na requisição: " + response.status);
@@ -18,7 +22,9 @@ window.addEventListener("DOMContentLoaded", () => {
             document.getElementById("categoria1").value = data.categoriaIniciada || "";
             document.getElementById("categoria2").value = data.categoriaFinalizada || "";
             document.getElementById("meta").value = data.meta || "";
-            document.getElementById("corFavorita").value = data.cor || "";
+            document.getElementById("corPrimaria").value = data.corPrimaria || "";
+            document.getElementById("corSecundária").value = data.corSecundaria || "";
+            document.getElementById("corTerciária").value = data.corTerciaria || "";
         })
         .catch(error => {
             console.error("Erro ao buscar dados:", error);
@@ -35,11 +41,13 @@ window.addEventListener("DOMContentLoaded", () => {
             categoriaIniciada: document.getElementById("categoria1").value,
             categoriaFinalizada: document.getElementById("categoria2").value,
             meta: document.getElementById("meta").value,
-            cor: document.getElementById("corFavorita").value
+            corPrimaria: document.getElementById("corPrimaria").value,
+            corSecundaria: document.getElementById("corSecundária").value,
+            corTerciaria: document.getElementById("corTerciária").value
         };
 
-        fetch("http://localhost:8080/apiCliente/atualizar", {
-  method: "PUT",
+        fetch("http://localhost:8080/apiCliente", {
+  method: "PATCH",
   headers: {
     "Content-Type": "application/json"
   },
@@ -55,3 +63,5 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+//versao atualizada
