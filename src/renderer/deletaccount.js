@@ -27,12 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!response.ok) throw new Error();
         return response.json();
       })
-      .then(() => {
-        return fetch(`http://localhost:8080/apiFuncionario/deletarPorUsername/${username}`, {
-          method: 'DELETE'
-        });
-      })
-      .then(response => {
+      .then((data) => {
+        if(data != null){
+        fetch(`http://localhost:8080/apiFuncionario/deletarPorUsername/${username}`, {
+          method: 'DELETE'})
+        .then(response => {
         if (response.ok) {
           pDelet.textContent = 'Usuário deletado com sucesso!';
           pDelet.style.color = 'green';
@@ -41,7 +40,9 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => {
             window.location.href = 'login.html';
           }, 2000);
-        } else {
+      }})
+        }
+        else {
           pDelet.textContent = 'Erro ao deletar o usuário.';
           pDelet.style.color = 'red';
         }

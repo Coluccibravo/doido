@@ -3,11 +3,12 @@
 body{
     font-family: "Poppins";
     background-color: var(--gwhite);
+    font-size: 0.95rem; /* Reduz fonte geral */
 }
 
 #imglogin{
-    height: 40px;
-    width: 40px;
+    height: 32px; /* Reduzido */
+    width: 32px;  /* Reduzido */
 }
 
 #imglogin:hover{
@@ -16,31 +17,51 @@ body{
 
 #h1t{
     color: var(--bluelock);
+    font-size: 1.3rem; /* Reduzido */
 }
 
 .h2t{
     color: var(--purple);
+    font-size: 1.1rem; /* Reduzido */
 }
 
 label{
     font-weight: 700;
-    margin-bottom: 4px;
-    margin-top: 20px;
+    margin-bottom: 2px; /* Reduzido */
+    margin-top: 12px;   /* Reduzido */
+    font-size: 0.95rem; /* Reduzido */
 }
 input{
-    padding: 3px;
+    padding: 2px 6px; /* Reduzido */
     font-family: "Poppins";
     border-color: transparent;
-    border-radius: 5px;
+    border-radius: 4px; /* Reduzido */
+    font-size: 0.95rem; /* Reduzido */
 }
 
 #btnsave{
     background-color: var(--purple);
     color: white;
     text-decoration: none;
-    padding: 5px 20px 5px 20px;
-    border-radius: 5px;
+    padding: 4px 12px 4px 12px /* Reduzido */ ;
+    border-radius: 4px; /* Reduzido */
     font-weight: 600;
+    font-size: 0.95rem; /* Reduzido */
+    display: flex;
+    justify-content: right;
+    margin-top: 1.5%; /* Reduzido */
+    background-color: #353DAB;
+    border-color: #353DAB;
+}
+
+label{
+    margin-top: 1px;
+}
+
+.ps{
+    display: none;
+    margin-top: 1px;
+    margin-bottom: 1px;
 }
 
 input:focus {
@@ -54,7 +75,6 @@ input[type=number] {
 
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
-
 }
 
 .DivGlobalPageRegister{
@@ -66,45 +86,51 @@ input[type=number]::-webkit-inner-spin-button {
 
 #container{
     display: flex;
-    gap: 170px;
-    justify-content: center;
-    align-items: center;
-    min-height: 50vh;
-    margin-bottom: 50px;
+    flex-direction: row;
+    gap: 60px; /* Reduzido de 170px */
+    min-height: 35vh; /* Reduzido */
+    margin-bottom: 20px; /* Reduzido */ /* Alinha os forms verticalmente ao centro */
 }
 
-.FormPageRegister1{
+
+
+.FormPageRegister1,
+.FormPageRegister2 {
+    min-width: 220px; /* Garante largura mínima igual */
+    min-height: 320px; /* Garante altura mínima igual */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 6px; /* Adicionado para compactar */
 }
 
-.FormPageRegister2{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+
 
 .DivButtonsRegister{
     display: flex;
-    gap: 30px;
+    gap: 16px; /* Reduzido */
 }
 
-a{
-    text-decoration: none;
+#btnsave{
+    border: none;
+}
+
+#btnsave:hover{
+    background-color: darkblue;
+    cursor: pointer;
 }
 
 .ButtonCancel {
     display: flex;
     justify-content: right;
-    margin-top: 3%;
+    margin-top: 1.5%; /* Reduzido */
     background-color: #FA0202;
     border-color: #FA0202;
     color: white;
     text-decoration: none;
-    padding: 5px 20px 5px 20px;
-    border-radius: 5px;
+    padding: 4px 12px 4px 12px; /* Reduzido */
+    border-radius: 4px; /* Reduzido */
     font-weight: 600;
+    font-size: 0.95rem; /* Reduzido */
 }
 
 .ButtonCancel:hover{

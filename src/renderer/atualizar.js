@@ -100,25 +100,29 @@ document.getElementById("btnsave").addEventListener("click", () => {
 
   if (!inputsenha1.value && !inputsenha2.value) {
     mensagem.textContent = "Por favor, preencha as senhas!";
+    mensagem.style.display = "block";
     mensagem.style.color = "red";
     return;
   }
 
   if (inputsenha1.value !== inputsenha2.value) {
     mensagem.textContent = "As senhas não coincidem!";
+    mensagem.style.display = "block";
     mensagem.style.color = "red";
     return;
   }
 
   if (!validarCPF(cpf.value)) {
     mensagem.textContent = "CPF inválido!";
-    mensagem.style.color = "red";
+    mensagem.style.display = "block";
+    mensagem.style.color = "red"; 
     return;
   }
 
   const dataNascimento = new Date(dataNascimento1.value);
   if (dataNascimento > new Date()) {
     mensagem.textContent = "A data de nascimento não pode ser maior que o dia de hoje!";
+    mensagem.style.display = "block";
     mensagem.style.color = "red";
     return;
   }

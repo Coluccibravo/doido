@@ -50,6 +50,8 @@ document.getElementById("pesquisa").addEventListener("click", () => {
     window.location.href = "index.html";
   });
 
+  console.log(nome);
+  console.log(cpf);
   fetch(`http://localhost:8080/apiCliente/buscarsisdev2/${encodeURIComponent(nome)}/${cpf}`)
     .then((response) => {
       if (!response.ok) {
@@ -58,9 +60,16 @@ document.getElementById("pesquisa").addEventListener("click", () => {
       return response.json();
     })
     .then((data) => {
+      if(data != null){
       const resposta = document.getElementById("presposta");
       resposta.textContent = "Cliente encontrado com sucesso";
       resposta.style.color = "green";
+      }
+      else{
+      const resposta = document.getElementById("presposta");
+      resposta.textContent = "Erro ao buscar cliente. Verifique os dados e tente novamente.";
+      resposta.style.color = "red";
+      }
 
       setTimeout(() => {
         function calcularIdade(dataNascimentoStr) {

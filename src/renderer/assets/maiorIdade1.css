@@ -1,17 +1,22 @@
 @import './base.css';
 
-
 h1{
     color: #027BD4;
+    font-size: 1.1rem;
 }
 
 .h2l{
     color: #0353DA;
+    font-size: 1rem;
 }
 
 body{
     font-family: "Poppins";
     background-color: var(--gwhite);
+    font-size: 0.90rem;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 #primeirotitle{
@@ -21,70 +26,90 @@ body{
     max-width: 100%;
 }
 
+input{
+    font-family: "Poppins";
+    font-size: 11px;
+}
+
 #todosform{
     display: flex;
-    max-width: 60%;
+    max-width: 490px;
+    width: 90%;
     justify-content: space-between;
-    max-height: 70%;
-    margin-left: 20%;
-    margin-right: 10%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    align-items: stretch; /* Faz todos os filhos terem a mesma altura */
 }
 
-#form1{
-    margin-top: 10%;
+#fotohome{
+    cursor: pointer;
+}
+
+#form1, #form2, #form3{
+    margin-top: 1%;
     display: flex;
-    gap: 5px;
     flex-direction: column;
-    margin-right: 35px;
-    max-width: 33%;
-    max-height: 70%;
-}
-
-#form2{
-    margin-top: 10%;
-    display: flex;
     gap: 1px;
-    flex-direction: column;
-    max-width: 33%;
-    margin-right: 35px;
-    max-height: 70%;
+    max-width: 150px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-right: 0;
+    height: 100%; /* Garante mesma altura dos três forms */
 }
-
-#form3{
-    margin-top: 10%;
-    display: flex;
-    flex-direction: column;
-    max-width: 33%;
-}
-
 
 #buttons{
     display: flex;
-    gap: 30px;
-    margin-left: 800px;
-    margin-top: 70px;
+    gap: 8px;
+    margin: 12px auto 0 auto;
+    justify-content: center;
 }
 
 #continuar{
     background-color: #353DAB;
     color: white;
-    border-radius: 5px;
-    padding: 6px;
+    border-radius: 3px;
+    padding: 3px 7px;
     text-decoration: none;
+    font-size: 0.90rem;
+    margin-top: 3px;
+    border: none;
+    cursor: pointer;
 }
 
 #btnAtualizar{
     background-color: #353DAB;
     color: white;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 3px;
+    padding: 4px 10px;
     text-decoration: none;
+    font-size: 0.90rem;
+    margin-top: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+#buttons{
+    margin-top: 5px;
 }
 
 #voltar{
     background-color: red;
     color: white;
-    border-radius: 5px;
-    padding: 6px;
+    border-radius: 3px;
+    padding: 3px 7px;
     text-decoration: none;
+    font-size: 0.90rem;
+    margin-top: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+#message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin: 3px auto 0 auto;
+    
 }

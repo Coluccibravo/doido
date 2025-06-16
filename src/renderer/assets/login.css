@@ -33,6 +33,10 @@ body{
     font-weight: 400;
 }
 
+#inputsenha{
+    margin-bottom: 0px;
+}
+
 #FormPageLogin{
     display: flex;
     flex-direction: column;
@@ -44,6 +48,10 @@ input:focus{
     outline: none;
 }
 
+input{
+    font-family: "Poppins";
+}
+
 .Label1formlogin{
     display: flex;
     align-items: center;
@@ -53,6 +61,14 @@ input:focus{
     border: 0;
     padding: 5px 5px;
     border-radius: 5px;
+}
+
+#erradosenha {
+    margin-top: 0px;
+    margin-bottom: 0px; /* já está zerado */
+    font-size: 17px;
+    padding: 0px;
+    line-height: 0.7; /* diminui o espaço interno da linha */
 }
 
 #ButtonPageLoginEntrar{
