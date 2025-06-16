@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 const params = new URLSearchParams(window.location.search);
-const aa1 = params.get("nome"); 
+const aa1 = params.get("nome");
 const nome = document.getElementById('inputnome');
 const cpf = document.getElementById('inputcpf');
 const cargo = document.getElementById('inputcargo');
@@ -98,6 +98,34 @@ window.addEventListener('DOMContentLoaded', () => {
 document.getElementById("btnsave").addEventListener("click", () => {
   const mensagem = document.getElementById('pMessage');
 
+  if (nome.value.trim() == "") {
+    mensagem.textContent = "Por favor, preencha o nome!";
+    mensagem.style.display = "block";
+    mensagem.style.color = "red";
+    return;
+  }
+
+  if (cargo.value.trim() == "") {
+    mensagem.textContent = "Por favor, preencha o cargo!";
+    mensagem.style.display = "block";
+    mensagem.style.color = "red";
+    return;
+  }
+
+  if (cpf.value.trim() == "") {
+    mensagem.textContent = "Por favor, preencha o cpf!";
+    mensagem.style.display = "block";
+    mensagem.style.color = "red";
+    return;
+  }
+
+  if (username.value.trim() == "") {
+    mensagem.textContent = "Por favor, preencha o username!";
+    mensagem.style.display = "block";
+    mensagem.style.color = "red";
+    return;
+  }
+
   if (!inputsenha1.value && !inputsenha2.value) {
     mensagem.textContent = "Por favor, preencha as senhas!";
     mensagem.style.display = "block";
@@ -115,7 +143,7 @@ document.getElementById("btnsave").addEventListener("click", () => {
   if (!validarCPF(cpf.value)) {
     mensagem.textContent = "CPF inválido!";
     mensagem.style.display = "block";
-    mensagem.style.color = "red"; 
+    mensagem.style.color = "red";
     return;
   }
 
@@ -157,25 +185,25 @@ document.getElementById("btnsave").addEventListener("click", () => {
           senha: senhaParaEnviar
         })
       })
-      .then(response => {
-        if (!response.ok) throw new Error('Erro ao atualizar os dados: ' + response.status);
-        
-        mensagem.textContent = "Atualizado com sucesso";
-        mensagem.style.color = "green";
+        .then(response => {
+          if (!response.ok) throw new Error('Erro ao atualizar os dados: ' + response.status);
 
-        // Limpar campos de senha
-        inputsenha1.value = "";
-        inputsenha2.value = "";
+          mensagem.textContent = "Atualizado com sucesso";
+          mensagem.style.color = "green";
 
-        // Limpar mensagem após 5 segundos
-        setTimeout(() => {
-          mensagem.textContent = "";
-        }, 5000);
-      })
-      .catch(error => {
-        console.error("Erro na requisição de atualização:", error);
-        alert("Erro ao atualizar os dados.");
-      });
+          // Limpar campos de senha
+          inputsenha1.value = "";
+          inputsenha2.value = "";
+
+          // Limpar mensagem após 5 segundos
+          setTimeout(() => {
+            mensagem.textContent = "";
+          }, 5000);
+        })
+        .catch(error => {
+          console.error("Erro na requisição de atualização:", error);
+          alert("Erro ao atualizar os dados.");
+        });
     })
     .catch(error => {
       console.error("Erro ao verificar duplicidade de dados:", error);

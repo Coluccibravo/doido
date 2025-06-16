@@ -1,0 +1,67 @@
+body{
+    font-family: "Poppins", sans-serif;
+    background-color: F0EFF4;
+}
+
+h1{
+    color: #027BD4;
+}
+
+#btnAtualizar{
+    background-color: #353DAA;
+    color: white;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: poppins, sans-serif;
+    cursor: pointer;
+}
+
+
+#btnVoltar{
+    background-color: red;
+    color: white;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    font-family: poppins, sans-serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dentroform{
+    display: flex;
+    gap: 50px;
+}
+
+.entre{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    font-family: "Poppins", sans-serif;
+    background-color: F0EFF4;
+}
+
+.h2s{
+    color: #353DAA;
+}
+
+#buttons{
+    margin-top: 30px;
+    gap: 20px;
+}

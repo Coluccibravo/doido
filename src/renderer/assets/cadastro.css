@@ -137,3 +137,7 @@ input[type=number]::-webkit-inner-spin-button {
     background-color: darkred;
     cursor: pointer;
 }
+
+.Buttoncancel{
+    text-decoration: none;
+}

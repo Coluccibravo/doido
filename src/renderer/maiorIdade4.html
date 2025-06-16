@@ -1,51 +1,79 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Sistema de Desenvolvedor</title>
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
-    <link href="./assets/menorIdade4.css" type="text/css" rel="stylesheet" />
-  </head>
-  <body>
-    <div>
-        <h1>INFORMAÇÕES - SUPORTE</h1>
-        <form>
-            <h2>DADOS PESSOAIS</h2>
-            <label for="name">Nome Completo</label>
-            <input type="text" placeholder="Bruno Henrique" id="nomeCompleto">
-            <label for="suportLevel">Nível de Suporte</label>
-            <input type="text" placeholder="Nível 1" id="nivelSuporte">
-            <label for="comorbidity">Comorbidade</label>
-            <input type="text" placeholder="TDAH" id="comorbidade">
-        </form>
 
-        <form>
-            <h2>APRENDIZEM TEA</h2>
-            <label for="categoryInicial">Categoria Iniciada</label>
-            <input type="text" placeholder="Iniciante I" id="categoria1">
-            <label for="categoryActual">Categoria Iniciada</label>
-            <input type="text" placeholder="Intermediário I" id="categoria2">
-            <label for="objetive">Meta</label>
-            <input type="text" placeholder="Aprender JavaScript" id="meta">
-        </form>
+<head>
+  <meta charset="UTF-8" />
+  <title>Sistema de Desenvolvedor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link href="./assets/maiorIdade4.css" type="text/css" rel="stylesheet" />
+</head>
 
-        <form>
-            <h2>PERSONALIZAÇÕES</h2>
-            <label for="favoriteColor">Cor Primaria:</label>
-            <input type="text" placeholder="Azul" id="corPrimaria">
-            <label for="favoriteColor">Cor Secundária:</label>
-            <input type="text" placeholder="Azul" id="corSecundária">
-            <label for="favoriteColor">Cor Terciária:</label>
-            <input type="text" placeholder="Azul" id="corTerciária">
-
-        </form>
-        
-        <div>
-            <button id="btnAtualizar">ATUALIZAR</button>
-            <button id="btnVoltar">VOLTAR</button>
+<body>
+  <img src="./assets/Home.png" id="fotohome">
+  <div id="container">
+    <h1>INFORMAÇÕES - SUPORTE</h1>
+    <form class="form1">
+      <h2 class="h2s">DADOS PESSOAIS</h2>
+      <div id="dentroform">
+        <div class="entre">
+          <label for="name">Nome Completo</label>
+          <input type="text" placeholder="Bruno Henrique" id="nomeCompleto">
         </div>
+        <div class="entre">
+          <label for="suportLevel">Nível de Suporte</label>
+          <input type="text" placeholder="Nível 1" id="nivelSuporte">
+        </div>
+        <div class="entre">
+          <label for="comorbidity">Comorbidade</label>
+          <input type="text" placeholder="TDAH" id="comorbidade">
+        </div>
+      </div>
+    </form>
+
+    <form class="form1">
+      <h2 class="h2s">APRENDIZEM TEA</h2>
+      <div id="dentroform">
+        <div class="entre">
+          <label for="categoryInicial">Categoria Iniciada</label>
+          <input type="text" placeholder="Iniciante I" id="categoria1">
+        </div>
+        <div class="entre">
+          <label for="categoryActual">Categoria Iniciada</label>
+          <input type="text" placeholder="Intermediário I" id="categoria2">
+        </div>
+        <div class="entre">
+          <label for="objetive">Meta</label>
+          <input type="text" placeholder="Aprender JavaScript" id="meta">
+        </div>
+      </div>
+    </form>
+
+    <form class="form1">
+      <h2 class="h2s">PERSONALIZAÇÕES</h2>
+      <div id="dentroform">
+        <div class="entre">
+          <label for="favoriteColor">Cor Primaria:</label>
+          <input type="text" placeholder="Azul" id="corPrimaria">
+        </div>
+        <div class="entre">
+          <label for="favoriteColor">Cor Secundária:</label>
+          <input type="text" placeholder="Azul" id="corSecundária">
+        </div>
+        <div class="entre">
+          <label for="favoriteColor">Cor Terciária:</label>
+          <input type="text" placeholder="Azul" id="corTerciária">
+        </div>
+      </div>
+    </form>
+
+    <div id="buttons">
+      <button id="btnAtualizar">ATUALIZAR</button>
+      <button id="btnVoltar">VOLTAR</button>
     </div>
-    <script src="maioridade4.js"></script>
-  </body>
+  </div>
+  <script src="maioridade4.js"></script>
+</body>

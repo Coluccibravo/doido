@@ -1,4 +1,8 @@
+/* eslint-disable prettier/prettier */
 
+document.getElementById("fotohome").addEventListener("click", () => {
+    window.location.href = "login.html"
+})
 
 window.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
