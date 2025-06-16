@@ -28,7 +28,7 @@ body{
 
 input{
     font-family: "Poppins";
-    font-size: 15px;
+    padding: 5px;
 }
 
 label{

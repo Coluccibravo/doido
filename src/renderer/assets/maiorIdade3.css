@@ -1,3 +1,94 @@
+@import './base.css';
+
 #fotohome{
     cursor: pointer;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    background-color: #F0EFF4;
+    max-height: 90vh;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+label{
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#cartoes{
+    display: none;
+   color: #353DAA;
+}
+
+input{
+    font-family: "Poppins", sans-serif;
+}
+
+#conteudo{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    max-width: 45%;
+    gap: 8px;
+}
+
+#title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #027BD4;
+}
+
+#voltar{
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    font-family: poppins, sans-serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#continuar{
+    background-color: #353DAA;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: poppins, sans-serif;
+    cursor: pointer;
+}
+
+#buttons{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+select{
+    background-color: var(--gwhite);
+}
+
+
+#cart1, #cart1tras{
+    background-color: #027BD4;
+    max-width: 50%;
+    max-height: 50%;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+}
+
+#imgscard{
+    display: flex;
+    gap: 150px;
 }

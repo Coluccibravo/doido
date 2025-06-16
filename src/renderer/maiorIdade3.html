@@ -1,38 +1,52 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Sistema de Desenvolvedor</title>
-    <link href="./assets/maiorIdade3.css" type="text/css" rel="stylesheet" />
-  </head>
-  <body>
-    <img src="./assets/Home.png" id="fotohome">
-    <div>
-        <h1>INFORMAÇÕES - CARTÕES</h1>
-        <form>
-            <h2>CARTÕES</h2>
-            <label for="selectCard">Cartão</label>
-            <select name="selectCard" id="selectCard">
-                
-            </select>
-            <label for="plans">Planos</label>
-            <input type="text" id="plans" placeholder="Básica, Premium, Gold" disabled>
-            <label for="account">Conta</label>
-            <input type="text" id="account" placeholder="Corrente" disabled>
-            <label for="cardNumber">Número Cartão</label>
-            <input type="text" placeholder="6445 8567 6859 3894" id="cardNumber" disabled>
-            <label for="valid">Validade</label>
-            <input type="date" placeholder="07/07/2027" id="validity" disabled>
-            <label for="CVV">Código de segurança (CVV)</label>
-            <input type="text" placeholder="460" id="securityCode" disabled>
-        </form>
 
+<head>
+  <meta charset="UTF-8" />
+  <title>Sistema de Desenvolvedor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
+  <link href="./assets/maiorIdade3.css" type="text/css" rel="stylesheet" />
+</head>
 
-        
-        <div>
-           <button id="continuar">CONTINUAR</button>
-           <button id="voltar">VOLTAR</button>
+<body>
+  <img src="./assets/Home.png" id="fotohome">
+    <h1 id="title">INFORMAÇÕES - CARTÕES</h1>
+    <div id="container">
+      <div id="conteudo">
+      <form class="form">
+          <h2 id="cartoes">CARTÕES</h2>
+          <label for="selectCard">Cartão</label>
+          <select name="selectCard" id="selectCard">
+
+          </select>
+          <label for="plans">Planos</label>
+          <input type="text" id="plans" placeholder="Básica, Premium, Gold" disabled>
+          <label for="account">Conta</label>
+          <input type="text" id="account" placeholder="Corrente" disabled>
+          <label for="cardNumber">Número Cartão</label>
+          <input type="text" placeholder="6445 8567 6859 3894" id="cardNumber" disabled>
+          <label for="valid">Validade</label>
+          <input type="date" placeholder="07/07/2027" id="validity" disabled>
+          <label for="CVV">Código de segurança (CVV)</label>
+          <input type="text" placeholder="460" id="securityCode" disabled>
+      </form>
+      </div>
+      <div id="cartoes">
+        <div id="cart1">
+          <div id="imgscard">
+          <img src="./assets/Chip Card.png">
+          <img src="./assets/Mastercard Logo.png" alt="">
+          </div>
         </div>
+        <div id="cart1tras">
+
+        </div>
+      </div>
     </div>
-    <script src="maioridade3.js"></script>
-  </body>
+  <div id="buttons">
+    <button id="continuar">CONTINUAR</button>
+    <button id="voltar">VOLTAR</button>
+  </div>
+  </div>
+  <script src="maioridade3.js"></script>
+</body>

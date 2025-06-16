@@ -9,4 +9,12 @@
   --orange: #FBBC05;
 }
 
+body{
+  font-family: "Poppins";
+}
+
+input, select{
+  font-family: "Poppins";
+  padding: 5px;
+}
 

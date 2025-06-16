@@ -103,7 +103,9 @@ input[type=number]::-webkit-inner-spin-button {
     gap: 6px; /* Adicionado para compactar */
 }
 
-
+.btnsaveclass{
+    text-decoration: none;
+}
 
 .DivButtonsRegister{
     display: flex;
@@ -111,6 +113,7 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 #btnsave{
+    padding: 5px;
     border: none;
 }
 
@@ -124,7 +127,7 @@ input[type=number]::-webkit-inner-spin-button {
     justify-content: right;
     margin-top: 1.5%; /* Reduzido */
     background-color: #FA0202;
-    border-color: #FA0202;
+    border: 0;
     color: white;
     text-decoration: none;
     padding: 4px 12px 4px 12px; /* Reduzido */
