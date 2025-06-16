@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 document.getElementById("fotohome").addEventListener("click", () => {
     window.location.href = "login.html"
 })

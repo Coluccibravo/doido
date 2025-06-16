@@ -10,6 +10,10 @@ body{
     margin-top: 10px;
 }
 
+#fotohome{
+    cursor: pointer;
+}
+
 #formulario1{
     display: flex;
     flex-direction: column;

@@ -3,6 +3,11 @@ body{
     background-color: F0EFF4;
 }
 
+#fotohome{
+    cursor: pointer;
+}
+
+
 h1{
     color: #027BD4;
 }

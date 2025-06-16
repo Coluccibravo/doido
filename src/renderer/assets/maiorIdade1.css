@@ -28,7 +28,11 @@ body{
 
 input{
     font-family: "Poppins";
-    font-size: 11px;
+    font-size: 15px;
+}
+
+label{
+    font-weight: 600;
 }
 
 #todosform{
@@ -37,6 +41,7 @@ input{
     width: 90%;
     justify-content: space-between;
     margin: 0 auto;
+    gap: 70px;
     box-sizing: border-box;
     align-items: stretch; /* Faz todos os filhos terem a mesma altura */
 }
@@ -45,15 +50,33 @@ input{
     cursor: pointer;
 }
 
+#form1{
+    gap: 7.5px;
+    margin-right: 0px;
+}
+
+#form2{
+    gap: 4px;
+}
+
+#form3{
+    gap: 0.5px;
+}
+
+#h2renda{
+    margin-bottom: 0px;
+}
+
 #form1, #form2, #form3{
     margin-top: 1%;
     display: flex;
     flex-direction: column;
-    gap: 1px;
     max-width: 150px;
     width: 100%;
     box-sizing: border-box;
-    margin-right: 0;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-top: 0px;
     height: 100%; /* Garante mesma altura dos três forms */
 }
 
@@ -89,7 +112,7 @@ input{
 }
 
 #buttons{
-    margin-top: 5px;
+    margin-top: 0px;
 }
 
 #voltar{
@@ -110,6 +133,6 @@ input{
     align-items: center;
     text-align: center;
     width: 100%;
-    margin: 3px auto 0 auto;
+    margin-bottom: 0px;
     
 }
