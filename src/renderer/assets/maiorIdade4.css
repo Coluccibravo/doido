@@ -1,6 +1,7 @@
+@import './base.css';
 body{
     font-family: "Poppins", sans-serif;
-    background-color: F0EFF4;
+    background-color: var(--backgroundgray);
 }
 
 #fotohome{

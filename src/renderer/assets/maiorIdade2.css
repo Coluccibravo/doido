@@ -1,6 +1,7 @@
+@import './base.css';
 body{
     font-family: poppins, sans-serif;
-    background-color: #F0EFF4;
+    background-color: var(--backgroundgray) !important; 
 }
 
 #subtitle{
@@ -70,8 +71,8 @@ td, th {
 }
 
 #buttons{
-    margin-top: 100px;
-    margin-left: 50px;
+    margin-top: 120px;
+    margin-left: 70px;
 }
 
 #title{

@@ -12,7 +12,7 @@ h1{
 
 body{
     font-family: "Poppins";
-    background-color: var(--gwhite);
+    background-color: var(--backgroundgray);
     font-size: 0.90rem;
     overflow-x: hidden;
     margin: 0;

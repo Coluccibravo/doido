@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 document.getElementById("fotohome").addEventListener("click", () => {
     window.location.href = "login.html";
 });
@@ -33,7 +34,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
             return response.json();
         })
-        .then((cartaoData) => {
+        .then((cartaoData) => { 
             cartoes = cartaoData;
             const select = document.getElementById('selectCard');
             select.innerHTML = '<option value="">Selecione um cartão</option>';
@@ -50,6 +51,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 const tipoSelecionado = this.value;
                 const cartaoSelecionado = cartoes.find(c => c.tipo === tipoSelecionado);
 
+                // eslint-disable-next-line prettier/prettier
                 if (cartaoSelecionado) {
                     let validade = cartaoSelecionado.datavalidade || '';
                     if (validade.includes('/')) {
@@ -62,8 +64,7 @@ window.addEventListener('DOMContentLoaded', () => {
 ;
                     document.getElementById('securityCode').value = cartaoSelecionado.cvv || '';
                     document.getElementById('validity').value = validade;
-                    document.getElementById("numero").value = cartaoSelecionado.numero || '';
-                    document.getElementById("limiteCartao").value = "R$: " + (cartaoSelecionado.limite || '0');
+                    document.getElementById("cardNumber").value = cartaoSelecionado.numero || '';
                     document.getElementById("validadeCartao").value = cartaoSelecionado.validade || '';
                 } else {
                     // Limpa os campos
@@ -71,7 +72,6 @@ window.addEventListener('DOMContentLoaded', () => {
                     document.getElementById('securityCode').value = '';
                     document.getElementById('validity').value = '';
                     document.getElementById("numeroCartao").value = '';
-                    document.getElementById("limiteCartao").value = '';
                     document.getElementById("validadeCartao").value = '';
                 }
             });
@@ -86,6 +86,7 @@ window.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then((rendaData) => {
+            
             document.getElementById('plans').value = rendaData.plano || '';
             document.getElementById('account').value = rendaData.tipo || '';
         })

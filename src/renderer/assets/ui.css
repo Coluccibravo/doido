@@ -1,7 +1,7 @@
 @import './base.css';
 
 body{
-    background-color: var(--gwhite);
+    background-color: var(--backgroundgray);
     font-family: "Poppins";
 }
 

@@ -2,6 +2,7 @@
 
 body {
     font-family: "Poppins";
+    background-color: var(--backgroundgray);
     display: flex;
     flex-direction: column;
     justify-content: center;
