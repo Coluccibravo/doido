@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 
 
 document.getElementById("ButtonPageLoginEntrar").addEventListener("click", function() {

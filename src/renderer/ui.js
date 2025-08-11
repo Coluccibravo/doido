@@ -90,7 +90,9 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 document.getElementById('btndeletaccout').addEventListener("click", () => {
-  window.location.href = "deletaccount.html";
+  const url = "deletaccount.html?nome=" + encodeURIComponent(datausername) + 
+              "&cpf=" + encodeURIComponent(aa2);
+  window.location.href = url;
 });
 
 document.getElementById('attinfo').addEventListener("click", ()=> {

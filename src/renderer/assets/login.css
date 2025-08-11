@@ -16,6 +16,11 @@ body{
     width: 40px;
 }
 
+#imglogin1{
+    height: 40px;
+    width: 40px;
+}
+
 #imglogin:hover{
     cursor: pointer;
 }
@@ -27,6 +32,13 @@ body{
     justify-content: center;
     min-height: 90vh;
     overflow: hidden;
+}
+
+#sisdev{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
 }
 
 .Pconectlogin{

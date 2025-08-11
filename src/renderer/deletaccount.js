@@ -1,6 +1,17 @@
+/* eslint-disable prettier/prettier */
+const params = new URLSearchParams(window.location.search);
+const aa3 = params.get("nome");
+const aa4 = params.get("cpf");
+
 document.getElementById('cancel').addEventListener("click",function(){
-    window.location.href= "login.html"
+    window.location.href= "login.html";
 })
+
+document.getElementById('cancel').addEventListener("click", () => {
+  const url = "ui.html?nome=" + encodeURIComponent(aa3) + 
+              "&idade=" + encodeURIComponent(aa4);
+  window.location.href = url;
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('confirma');
