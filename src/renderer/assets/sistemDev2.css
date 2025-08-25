@@ -96,17 +96,22 @@ input:focus {
     display: flex;
     justify-content: right;
     margin-top: 3%;
-}
-
-.Buttoncancel{
     background-color: #FA0202;
     color: white;
     text-decoration: none;
-    padding: 5px 20px 5px 20px;
+    padding: 7px 20px 7px 20px;
     border-radius: 5px;
     font-weight: 600;
+    border: none;
 }
 
-.Buttoncancel:hover{
+#btncancel{
+    display: flex;
+    justify-content: right;
+    margin-top: 0px;
+    height: 30px;
+}
+
+.ButtonCancel:hover{
     background-color: darkred;
 }

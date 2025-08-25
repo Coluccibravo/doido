@@ -95,6 +95,13 @@ document.getElementById('btndeletaccout').addEventListener("click", () => {
   window.location.href = url;
 });
 
+document.getElementById('sisdev').addEventListener("click", () => {
+  const url = "sistemDev2.html?nome=" + encodeURIComponent(datausername) + 
+              "&cpf=" + encodeURIComponent(aa2);
+  window.location.href = url;
+});
+
+
 document.getElementById('attinfo').addEventListener("click", ()=> {
   const url = "atualizar.html?nome=" + encodeURIComponent(datausername);
   window.location.href = url;

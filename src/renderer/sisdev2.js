@@ -1,3 +1,7 @@
+const params = new URLSearchParams(window.location.search);
+const aa3 = params.get("nome");
+const aa4 = params.get("cpf");
+
 const inputCPF = document.getElementById("inputcpf");
 
 function formatarCPF(value) {
@@ -50,8 +54,6 @@ document.getElementById("pesquisa").addEventListener("click", () => {
     window.location.href = "index.html";
   });
 
-  console.log(nome);
-  console.log(cpf);
   fetch(`http://localhost:8080/apiCliente/buscarsisdev2/${encodeURIComponent(nome)}/${cpf}`)
     .then((response) => {
       if (!response.ok) {
@@ -106,3 +108,10 @@ document.getElementById("pesquisa").addEventListener("click", () => {
       resposta.style.color = "red";
     });
 });
+
+
+document.getElementById("btncancel").addEventListener("click", () => {
+    const url = "ui.html?nome=" + encodeURIComponent(aa3) + 
+              "&idade=" + encodeURIComponent(aa4);
+  window.location.href = url;
+})

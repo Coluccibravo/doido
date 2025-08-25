@@ -50,13 +50,17 @@ img{
     gap: 30px;
 }
 
-#accsisdev{
+#sisdev{
+     font-family: "Poppins";
     background-color: var(--purple);
+    text-align: center;
     text-decoration: none;
-    color: var(--gwhite);
     font-weight: 600;
+    color: var(--gwhite);
     border-radius: 5px;
-    padding: 5px;
+    padding: 7px;
+    border: 0px;
+    cursor: pointer;
 }
 
 #attinfo{
