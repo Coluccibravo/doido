@@ -1,138 +1,151 @@
 @import './base.css';
 
-h1{
-    color: #027BD4;
-    font-size: 1.1rem;
-}
-
-.h2l{
-    color: #0353DA;
-    font-size: 1rem;
-}
-
-body{
-    font-family: "Poppins";
-    background-color: var(--backgroundgray);
-    font-size: 0.90rem;
-    overflow-x: hidden;
+/* Reset geral */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-#primeirotitle{
+html, body {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    font-family: poppins, sans-serif;
+    background-color: var(--backgroundgray);
+    font-size: 0.88rem; /* ligeiramente menor */
+}
+
+h1 {
+    color: #027BD4;
+    font-size: 1rem; /* reduzido */
+    font-family: poppins, sans-serif;
+}
+
+.h2l {
+    color: #0353DA;
+    font-size: 1.3em; /* reduzido */
+    font-family: poppins, sans-serif;
+}
+
+#imglogin1 {
+    height: 36px; /* reduzido */
+    width: 36px;
+}
+
+#sisdev {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* reduzido */
+    align-items: center;
+    margin-left: 8px;
+    margin-top: 8px;
+    font-family: poppins, sans-serif;
+    font-size: 1rem; /* reduzido */
+}
+
+#fotohome {
+    cursor: pointer;
+    width: 40px; /* reduzido */
+    height: 40px;
+    object-fit: contain;
+    margin: 0;
+    align-self: center;
+}
+
+input {
+    font-family: poppins, sans-serif;
+    padding: 4px; /* reduzido */
+    font-size: 0.85rem; /* reduzido */
+}
+
+label {
+    font-weight: 600;
+    font-family: poppins, sans-serif;
+    font-size: 0.85rem; /* reduzido */
+}
+
+#primeirotitle {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     max-width: 100%;
+    margin-top: 8px;
+    font-family: poppins, sans-serif;
 }
 
-input{
-    font-family: "Poppins";
-    padding: 5px;
+#zh1{
+    font-size: 2em;
 }
 
-label{
-    font-weight: 600;
-}
-
-#todosform{
+#todosform {
     display: flex;
-    max-width: 490px;
-    width: 90%;
-    justify-content: space-between;
-    margin: 0 auto;
-    gap: 70px;
-    box-sizing: border-box;
-    align-items: stretch; /* Faz todos os filhos terem a mesma altura */
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    gap: 30px; /* reduzido */
+    margin: 15px auto;
+    align-items: stretch;
+    overflow: hidden;
 }
 
-#fotohome{
-    cursor: pointer;
-}
-
-#form1{
-    gap: 7.5px;
-    margin-right: 0px;
-}
-
-#form2{
-    gap: 4px;
-}
-
-#form3{
-    gap: 0.5px;
-}
-
-#h2renda{
-    margin-bottom: 0px;
-}
-
-#form1, #form2, #form3{
-    margin-top: 1%;
+#form1, #form2, #form3 {
     display: flex;
     flex-direction: column;
-    max-width: 150px;
+    max-width: 130px; /* reduzido */
     width: 100%;
-    box-sizing: border-box;
-    margin-right: 0px;
+    height: 100%;
+    font-family: poppins, sans-serif;
+}
+
+#form1 { gap: 8px; }
+#form2 { gap: 6px; }
+#form3 { gap: 5px; }
+
+#h2renda {
     margin-bottom: 0px;
-    margin-top: 0px;
-    height: 100%; /* Garante mesma altura dos três forms */
 }
 
-#buttons{
+#buttons {
     display: flex;
-    gap: 8px;
-    margin: 12px auto 0 auto;
     justify-content: center;
+    gap: 6px; /* reduzido */
+    margin-top: 8px;
 }
 
-#continuar{
-    background-color: #353DAB;
-    color: white;
+#continuar,
+#btnAtualizar,
+#voltar {
+    font-size: 0.85rem; /* reduzido */
+    padding: 3px 8px; /* reduzido */
     border-radius: 3px;
-    padding: 3px 7px;
-    text-decoration: none;
-    font-size: 0.90rem;
-    margin-top: 3px;
     border: none;
     cursor: pointer;
-}
-
-#btnAtualizar{
-    background-color: #353DAB;
-    color: white;
-    border-radius: 3px;
-    padding: 4px 10px;
     text-decoration: none;
-    font-size: 0.90rem;
-    margin-top: 3px;
-    border: none;
-    cursor: pointer;
+    color: white;
+    font-family: poppins, sans-serif;
 }
 
-#buttons{
-    margin-top: 0px;
+#continuar,
+#btnAtualizar {
+    background-color: #353DAB;
 }
 
-#voltar{
+#voltar {
     background-color: red;
-    color: white;
-    border-radius: 3px;
-    padding: 3px 7px;
-    text-decoration: none;
-    font-size: 0.90rem;
-    margin-top: 3px;
-    border: none;
-    cursor: pointer;
 }
 
-#message{
+#message {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     width: 100%;
     margin-bottom: 0px;
-    
+    font-family: poppins, sans-serif;
+}
+
+#msgSucesso{
+    font-size: 1.4em;
 }

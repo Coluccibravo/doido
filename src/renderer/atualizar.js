@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 const params = new URLSearchParams(window.location.search);
 const aa1 = params.get("nome");
+const aa2 = params.get("cpf");
 const nome = document.getElementById('inputnome');
 const cpf = document.getElementById('inputcpf');
 const cargo = document.getElementById('inputcargo');
@@ -209,3 +210,10 @@ document.getElementById("btnsave").addEventListener("click", () => {
       console.error("Erro ao verificar duplicidade de dados:", error);
     });
 });
+
+
+document.getElementById("cancel").addEventListener("click", ()=>{
+  const url = "ui.html?nome=" + encodeURIComponent(aa1) + 
+  "&idade=" + encodeURIComponent(aa2);
+window.location.href = url;
+})

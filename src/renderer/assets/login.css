@@ -25,6 +25,13 @@ body{
     cursor: pointer;
 }
 
+#sisdev{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
 #BodyFirstPageLogin{
     display: flex;
     flex-direction: column;
@@ -32,13 +39,6 @@ body{
     justify-content: center;
     min-height: 90vh;
     overflow: hidden;
-}
-
-#sisdev{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    align-items: center;
 }
 
 .Pconectlogin{

@@ -16,7 +16,6 @@ h1{
 #btnAtualizar{
     background-color: #353DAA;
     color: white;
-    font-size: 1.2em;
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
@@ -24,11 +23,21 @@ h1{
     cursor: pointer;
 }
 
+#sisdev{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+#imglogin1{
+    height: 40px;
+    width: 40px;
+}
 
 #btnVoltar{
     background-color: red;
     color: white;
-    font-size: 1.2em;
     padding: 5px 10px;
     font-family: poppins, sans-serif;
     border: none;
@@ -68,6 +77,7 @@ input{
 }
 
 #buttons{
+    display: flex;
     margin-top: 30px;
-    gap: 20px;
+    gap: 40px;
 }

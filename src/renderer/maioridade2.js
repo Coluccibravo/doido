@@ -1,6 +1,6 @@
 document.getElementById("fotohome").addEventListener("click", () => {
     window.location.href = "login.html"
-})
+});
 
 window.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
@@ -30,7 +30,7 @@ window.addEventListener("DOMContentLoaded", () => {
         })
         .then((data) => {
             document.getElementById('nome').value = data.nome;
-            clienteId = data.id; // Aqui a variável recebe valor
+            clienteId = data.id;
 
             Promise.all([
                 fetch(`http://localhost:8080/apiExtrato/clienteEnvio/${clienteId}`).then(res => res.json()),
@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
             ])
                 .then(([envios, recebidos]) => {
                     const tbody = document.querySelector("#extrato tbody");
-                    tbody.innerHTML = ""; // Limpa antes de renderizar
+                    tbody.innerHTML = "";
 
                     const transacoes = [
                         ...envios.map(item => ({ ...item, tipo: "envio" })),
@@ -55,9 +55,12 @@ window.addEventListener("DOMContentLoaded", () => {
                     // Ordenar por data (mais recente primeiro)
                     transacoes.sort((a, b) => parseData(b.data) - parseData(a.data));
 
-                    // Calcular saldo atual
+                    // Pegar apenas as 5 mais recentes
+                    const ultimasTransacoes = transacoes.slice(0, 5);
+
+                    // Calcular saldo com base nas últimas 5 transações
                     let saldo = 0;
-                    transacoes.forEach(item => {
+                    ultimasTransacoes.forEach(item => {
                         const valor = parseFloat(item.valor);
                         saldo += item.tipo === "recebido" ? valor : -valor;
                     });
@@ -65,22 +68,22 @@ window.addEventListener("DOMContentLoaded", () => {
                     // Exibir saldo no input
                     document.getElementById("saldo").value = `R$: ${saldo.toFixed(2)}`;
 
-                    // Exibir última movimentação (opcional)
-                    if (transacoes.length > 0) {
-                        const ultima = transacoes[0];
+                    // Exibir última movimentação
+                    if (ultimasTransacoes.length > 0) {
+                        const ultima = ultimasTransacoes[0];
                         const sinal = ultima.tipo === "envio" ? "-" : "+";
                         document.getElementById("lastMoviment").value = `R$: ${sinal}${ultima.valor}`;
                     }
 
                     // Exibir transações
-                    transacoes.forEach(item => {
+                    ultimasTransacoes.forEach(item => {
                         const tr = document.createElement("tr");
                         tr.style.backgroundColor = item.tipo === "envio" ? "#ffcccc" : "#ccffcc";
                         const sinal = item.tipo === "envio" ? "-" : "+";
                         tr.innerHTML = `
-            <td>${item.data}</td>
-            <td>R$: ${sinal}${item.valor}</td>
-        `;
+                            <td>${item.data}</td>
+                            <td>R$: ${sinal}${item.valor}</td>
+                        `;
                         tbody.appendChild(tr);
                     });
                 })
@@ -88,7 +91,6 @@ window.addEventListener("DOMContentLoaded", () => {
                     console.error('Erro ao carregar transações:', error);
                 });
 
-                console.log(clienteId)
             return fetch(`http://localhost:8080/apiRenda/buscarPorClienteId/${clienteId}`);
         })
         .then((response) => {
@@ -98,8 +100,6 @@ window.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then((data) => {
-
-
             document.getElementById('percentual').value = data.persentualRendaInvestimentos + "%";
             document.getElementById('total').value = "R$ " + data.rendaTotalInvestimentos;
             document.getElementById('adicionais').value = data.perfildoinvestidor;
@@ -107,14 +107,13 @@ window.addEventListener("DOMContentLoaded", () => {
             document.getElementById('plano').value = data.plano;
             document.getElementById('tipo').value = data.tipo;
             document.getElementById('saldo').value = data.saldo;
-            adicionarItem(); // ✅ Agora chamamos depois que clienteId está pronto
+            adicionarItem();
         })
         .catch((error) => {
             console.error('Erro ao buscar dados:', error);
         });
 
     function adicionarItem() {
-
         fetch(`http://localhost:8080/apiRenda/buscarPorClienteId/${clienteId}`)
             .then((response) => {
                 if (!response.ok) {

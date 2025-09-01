@@ -4,6 +4,19 @@
     cursor: pointer;
 }
 
+
+#sisdev{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+
+#imglogin1{
+    height: 40px;
+    width: 40px;
+}
+
 body{
     font-family: "Poppins", sans-serif;
     background-color: var(--backgroundgray);

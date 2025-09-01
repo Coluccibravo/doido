@@ -114,4 +114,5 @@ input:focus {
 
 .ButtonCancel:hover{
     background-color: darkred;
+    cursor: pointer;
 }

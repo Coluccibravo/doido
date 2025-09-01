@@ -103,6 +103,7 @@ document.getElementById('sisdev').addEventListener("click", () => {
 
 
 document.getElementById('attinfo').addEventListener("click", ()=> {
-  const url = "atualizar.html?nome=" + encodeURIComponent(datausername);
+  const url = "atualizar.html?nome=" + encodeURIComponent(datausername) +
+              "&cpf=" + encodeURIComponent(aa2);
   window.location.href = url;
 });
