@@ -1,0 +1,36 @@
+@import './base.css';
+
+.titulo-bi {
+    font-size: 32px;
+    font-family: "Poppins";
+    color: var(--purple);
+}
+
+iframe {
+    border: 1px solid var(--purple);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.botao-voltar {
+    border: 0;
+    padding: 5px;
+    background: var(--cancelred);
+    color: var(--gwhite);
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    width: fit-content;
+}
+
+.powerbi-frame {
+    width: 100%;
+    height: 80vh;
+    border: none;
+    overflow: hidden;
+    margin-bottom: 5px;
+}

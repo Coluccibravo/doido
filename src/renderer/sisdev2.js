@@ -2,6 +2,9 @@ const params = new URLSearchParams(window.location.search);
 const aa3 = params.get("nome");
 const aa4 = params.get("cpf");
 
+console.log(aa3);
+console.log(aa4);
+
 const inputCPF = document.getElementById("inputcpf");
 
 function formatarCPF(value) {
@@ -116,8 +119,8 @@ document.getElementById("btncancel").addEventListener("click", () => {
   window.location.href = url;
 })
 
-document.getElementById("criarconta").addEventListener("click", () => {
-  const url = "powerbi.html?nome=" + encodeURIComponent(document.getElementById("inputnome").value.trim()) +
-              "&cpf=" + encodeURIComponent(inputCPF.value.replace(/\D/g, ""));
+document.getElementById("powerbi").addEventListener("click", () => {
+  const url = "powerbi.html?nome=" + encodeURIComponent(aa3) + 
+              "&idade=" + encodeURIComponent(aa4);
   window.location.href = url;
 });

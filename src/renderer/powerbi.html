@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,14 +12,30 @@
   font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;
   frame-src https://app.powerbi.com;
 ">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="./assets/powerbi.css" type="text/css" rel="stylesheet" />
+
     <title>Power BI Embed</title>
 
 </head>
+
 <body>
 
-    <h1>Relatório do Power BI</h1>
-    <iframe title="BANKALT" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiY2Y3NjQwY2UtNDNmNy00NTExLWFmYmQtYjAzNGU4NmQ0YTE5IiwidCI6ImI0NzQxYTgyLTZiNmUtNDNhNS1hZDZlLTEwNDQ1MTFhYWVkNiJ9" frameborder="0" allowFullScreen="true"></iframe>
-    
+    <h1 class="titulo-bi">Relatório do Power BI</h1>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <iframe 
+            title="Power BI Report" 
+            width="1000" 
+            height="500" 
+            src="https://app.powerbi.com/view?r=eyJrIjoiY2Y3NjQwY2UtNDNmNy00NTExLWFmYmQtYjAzNGU4NmQ0YTE5IiwidCI6ImI0NzQxYTgyLTZiNmUtNDNhNS1hZDZlLTEwNDQ1MTFhYWVkNiJ9"
+            frameborder="0" 
+            allowFullScreen="true">
+        </iframe>
+      </div>
+      <input type="button" value="VOLTAR" class="botao-voltar" id="voltar">
+    <script src="powerbi.js"></script>
 </body>
+
 </html>

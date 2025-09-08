@@ -1,43 +1,43 @@
 @import './base.css';
 
-body{
+body {
     background-color: var(--backgroundgray);
     font-family: "Poppins";
 }
 
-p{
+p {
     font-weight: 700;
 }
 
 #imgperson {
-  width: 100px;
-  height: 100px;
-  /* Adicione uma borda temporária ou um background para visualizar o espaço */
-  border: 1px solid #ccc;
+    width: 250px;
+    height: 250px;
+    border: 1px solid #ccc;
+    border-radius: 100%;
 }
 
-#imglogin{
+#imglogin {
     height: 40px;
     width: 40px;
 }
 
-#imglogin:hover{
+#imglogin:hover {
     cursor: pointer;
 }
 
-img{
+img {
     margin-bottom: 0px;
     max-width: 120px;
     max-height: 120px;
 }
 
-#divimgperson{
-  display: flex;
-  flex-direction: column;
-  align-items: center;  
+#divimgperson {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#container{
+#container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,19 +46,19 @@ img{
     flex-direction: column;
 }
 
-#textoimage{
+#textoimage {
     display: flex;
     gap: 150px;
 }
 
-#button{
+#button {
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-#sisdev{
-     font-family: "Poppins";
+#sisdev {
+    font-family: "Poppins";
     background-color: var(--purple);
     text-align: center;
     text-decoration: none;
@@ -70,7 +70,7 @@ img{
     cursor: pointer;
 }
 
-#attinfo{
+#attinfo {
     font-family: "Poppins";
     background-color: var(--bluelight);
     text-align: center;
@@ -83,7 +83,7 @@ img{
     cursor: pointer;
 }
 
-#logout{
+#logout {
     background-color: var(--orange);
     text-align: center;
     font-weight: 600;
@@ -93,13 +93,13 @@ img{
     padding: 5px;
 }
 
-#textebutton{
+#textebutton {
     display: flex;
     flex-direction: row;
     gap: 80px;
 }
 
-#btndeletaccout{
+#btndeletaccout {
     background-color: red;
     border: red;
     color: var(--gwhite);
@@ -110,6 +110,6 @@ img{
     font-size: 15px;
 }
 
-#btndeletaccout:hover{
+#btndeletaccout:hover {
     cursor: pointer;
 }
