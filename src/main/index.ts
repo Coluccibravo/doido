@@ -31,10 +31,10 @@ function createWindow(): void {
       responseHeaders: {
         ...details.responseHeaders,
         "Content-Security-Policy": [
-          "default-src 'self'; " +
-          "connect-src 'self' http://localhost:8080; " +
+          "default-src 'self' http://localhost:8080 https://fonts.googleapis.com https://fonts.gstatic.com; " +
+          "img-src 'self' blob: data: http://localhost:8080; " +
           "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
-          "font-src 'self' https://fonts.gstatic.com;"
+          "font-src https://fonts.gstatic.com;"
         ]
       }
     });
@@ -87,7 +87,7 @@ app.whenReady().then(() => {
     }
   });
 
- 
+  
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
@@ -106,5 +106,3 @@ app.on('window-all-closed', () => {
 
 // In this file you can include the rest of your app"s specific main process
 // code. You can also put them in separate files and require them here.
-
-

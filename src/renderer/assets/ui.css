@@ -9,6 +9,13 @@ p{
     font-weight: 700;
 }
 
+#imgperson {
+  width: 100px;
+  height: 100px;
+  /* Adicione uma borda temporária ou um background para visualizar o espaço */
+  border: 1px solid #ccc;
+}
+
 #imglogin{
     height: 40px;
     width: 40px;

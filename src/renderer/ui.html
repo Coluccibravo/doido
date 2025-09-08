@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://localhost:8080 https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' blob: data: http://localhost:8080; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com;">
   <link rel="stylesheet" href="./assets/ui.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,12 +18,12 @@
   <img src="./assets/Home.png" style="display: block" id="imglogin" />
   <div id="container">
     <div id="textoimage">
-      <h1>Olá <span id="nomeDeUsuario">[NOME DO USUARIO]</span></h1>
-      <div id="divimgperson">
-        <img src="./assets/Ellipse 1.png" alt="" id="imgperson" />
+    <h1>Olá <span id="nomeDeUsuario">[NOME DO USUARIO]</span></h1>
+    <div id="divimgperson">
+        <img src="" alt="Foto de perfil" id="imgperson" />
         <p><span id="email">@example</span></p>
-      </div>
     </div>
+</div>
     <div id="textebutton">
       <div id="texte">
         <p>NOME: <span id="nomeCompleto">[NOME COMPLETO USUARIO]</span></p>
