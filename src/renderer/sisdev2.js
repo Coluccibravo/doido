@@ -115,3 +115,9 @@ document.getElementById("btncancel").addEventListener("click", () => {
               "&idade=" + encodeURIComponent(aa4);
   window.location.href = url;
 })
+
+document.getElementById("criarconta").addEventListener("click", () => {
+  const url = "powerbi.html?nome=" + encodeURIComponent(document.getElementById("inputnome").value.trim()) +
+              "&cpf=" + encodeURIComponent(inputCPF.value.replace(/\D/g, ""));
+  window.location.href = url;
+});
